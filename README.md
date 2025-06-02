@@ -1,1 +1,1 @@
-# Algoritmos_Gen-ticos_2025_G4
+# Algoritmos_Geneticos_2025_G4
