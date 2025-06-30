@@ -143,56 +143,47 @@ El criterio de parada se define lógicamente para determinar cuándo detener el 
 ## Ejemplo en Prolog
 
 ```prolog
-% Individuos como listas de 0s y 1s
-individuo([1,0,1,0]).
-individuo([0,1,1,1]).
-individuo([1,1,0,1]).
+% Población inicial
+poblacion_inicial([34, 87, 12, 63]). 
 
-% Cuenta los unos en la lista (fitness)
-fitness([], 0).
-fitness([1|T], F) :- fitness(T, F1), F is F1 + 1.
-fitness([0|T], F) :- fitness(T, F).
+% Evaluar aptitud (más cerca de 100 es mejor)
+evaluar(X, Aptitud) :-
+    Distancia is abs(100 - X),
+    Aptitud is 100 - Distancia.
 
-% Ejemplo:
-% ?- fitness([1,0,1,1], F).
-% F = 3.
 
-% Selección (por torneo simple entre dos)
-% Selecciona el mejor entre dos individuos
-seleccion(I1, I2, Mejor) :-
-    fitness(I1, F1),
-    fitness(I2, F2),
-    (F1 >= F2 -> Mejor = I1 ; Mejor = I2).
+% Seleccionar los dos mejores
+seleccionar_mejores(Poblacion, Mejor1, Mejor2) :-
+    map_list_to_pairs(evaluar, Poblacion, Pares),
+    keysort(Pares, Ordenados),
+    reverse(Ordenados, [_-Mejor1, _-Mejor2 | _]).
 
-% Cruce (punto fijo en la mitad)
-% Corta una lista a la mitad
-dividir(Lista, L1, L2) :-
-    length(Lista, N),
-    Half is N // 2,
-    length(L1, Half),
-    append(L1, L2, Lista).
+% Cruce (promedio entre dos padres)
+cruzar(PadreX, PadreY, Hijo) :-
+    H is (PadreX + PadreY) // 2,
+    Hijo = H.
 
-% Cruce de dos individuos
-cruzar(P1, P2, Hijo) :-
-    dividir(P1, A1, _),
-    dividir(P2, _, A2),
-    append(A1, A2, Hijo).
+% Mutación (sumar o restar un valor aleatorio pequeño)
+mutar(Hijo, Mutado) :-
+    random_between(-10, 10, ValorAleatorio),
+    writeln('Función mutar: '),
+    write('Valor sumado a mutado: '), writeln(ValorAleatorio),
+    writeln('------------------------------------'),
+    Mutado is Hijo + ValorAleatorio.
 
-% Mutación (cambia un bit aleatoriamente)
-mutar_bit(0, 1).
-mutar_bit(1, 0).
+% Evolucionar una generación
+evolucionar(PoblacionActual, NuevaPoblacion) :-
+    seleccionar_mejores(PoblacionActual, Mutacion1, Mutacion2),
+    cruzar(Mutacion1, Mutacion2, Hijo1), mutar(Hijo1, M1Mutado),
+    cruzar(Mutacion2, Mutacion1, Hijo2), mutar(Hijo2, M2Mutado),
+    NuevaPoblacion = [Mutacion1, Mutacion2, M1Mutado, M2Mutado].
 
-% Mutar una lista: muta un solo bit aleatoriamente
-mutar([], []).
-mutar([H|T], [Hmut|T]) :-
-    random(0.0, 1.0, R),
-    (R < 0.25 -> mutar_bit(H, Hmut) ; Hmut = H).
 
-% Crear un hijo con cruce y mutación
-reproducir(P1, P2, HijoMutado) :-
-    cruzar(P1, P2, Hijo),
-    mutar(Hijo, HijoMutado).
-
+% Correr:
+%     	poblacion_inicial(PrimeraGeneracion), 
+%    	evolucionar(PrimeraGeneracion, SegundaGeneracion),
+%		seleccionar_mejores(SegundaGeneracion, Mejor, _), 	
+%    	evaluar(Mejor, AptitudDelMejor).
 ```
 
 
