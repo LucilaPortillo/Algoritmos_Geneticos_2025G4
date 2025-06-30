@@ -127,30 +127,16 @@ NEAT se ha usado con éxito en videojuegos, robótica y optimización sin superv
 
 ---
 
-## ¿Por qué conviene hacer un algoritmo genético con lógica y programación?
-
-Implementar un algoritmo genético con lógica y programación conviene porque el funcionamiento mismo de estos algoritmos se basa en principios lógicos aplicados paso a paso.  
-Los operadores genéticos (recombinación y mutación) combinan y modifican soluciones existentes usando principios lógicos, esta combinación responde a una lógica estructurada: cruzar genes compatibles, variar componentes de forma puntual y mantener la validez de las soluciones.  
-
-La función de aptitud utiliza lógica para evaluar la calidad de las soluciones, evalúa cada individuo en función de un conjunto de reglas o condiciones definidas previamente.  
-
-El proceso de selección se basa en principios lógicos de selección natural. Puede entenderse como una consecuencia lógica del principio de aptitud: se seleccionan aquellos individuos que cumplen con las condiciones deseadas.  
-
-El criterio de parada se define lógicamente para determinar cuándo detener el algoritmo.
-
----
-
 ## Ejemplo en Prolog
 
 ```prolog
 % Población inicial
-poblacion_inicial([34, 87, 12, 63]). 
+poblacion_inicial([34, 87, 12, 63]).
 
 % Evaluar aptitud (más cerca de 100 es mejor)
 evaluar(X, Aptitud) :-
     Distancia is abs(100 - X),
     Aptitud is 100 - Distancia.
-
 
 % Seleccionar los dos mejores
 seleccionar_mejores(Poblacion, Mejor1, Mejor2) :-
@@ -178,16 +164,20 @@ evolucionar(PoblacionActual, NuevaPoblacion) :-
     cruzar(Mutacion2, Mutacion1, Hijo2), mutar(Hijo2, M2Mutado),
     NuevaPoblacion = [Mutacion1, Mutacion2, M1Mutado, M2Mutado].
 
-
-% Correr:
-%     	poblacion_inicial(PrimeraGeneracion), 
-%    	evolucionar(PrimeraGeneracion, SegundaGeneracion),
-%		seleccionar_mejores(SegundaGeneracion, Mejor, _), 	
-%    	evaluar(Mejor, AptitudDelMejor).
 ```
 
 
 
------------------------------------------------------------------------------------------------------
-				                    CONCLUSIONES
------------------------------------------------------------------------------------------------------												
+---
+## Conclusion					
+Implementar un algoritmo genético con lógica y programación, como hicimos en nuestro código en Prolog, es conveniente porque su funcionamiento se basa en principios lógicos aplicados paso a paso.
+
+Los operadores genéticos —como la recombinación (cruzar/3) y la mutación (mutar/2)— combinan y modifican soluciones existentes mediante reglas claras. En nuestro caso, el cruce se realiza promediando dos padres, lo cual responde a una lógica estructurada: mezclar componentes de forma compatible. La mutación introduce variaciones pequeñas y controladas, manteniendo la validez de las soluciones.
+
+La función de aptitud (evaluar/2) utiliza lógica para medir la calidad de cada individuo. Evalúa qué tan cerca está de un objetivo definido (el valor 100), aplicando una condición precisa y cuantificable para cada miembro de la población.
+
+La selección de individuos (seleccionar_mejores/3) se basa en el principio lógico de selección natural: se eligen aquellos que presentan mayor aptitud. Esta selección es una consecuencia directa del criterio de evaluación, y garantiza que las soluciones más prometedoras sigan participando en las siguientes generaciones.
+
+El proceso de evolución (evolucionar/2) replica lógicamente el ciclo evolutivo, aplicando paso a paso las reglas de selección, recombinación y mutación.
+
+En conjunto, el algoritmo demuestra cómo los principios de la lógica pueden guiar de forma efectiva un proceso de optimización inspirado en la naturaleza.		
