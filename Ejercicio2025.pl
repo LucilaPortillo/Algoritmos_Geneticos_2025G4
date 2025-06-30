@@ -34,12 +34,8 @@ evolucionar(PoblacionActual, NuevaPoblacion) :-
     NuevaPoblacion = [Mutacion1, Mutacion2, M1Mutado, M2Mutado].
 
 
-% run :-
+% Correr:
 %     	poblacion_inicial(PrimeraGeneracion), 
 %    	evolucionar(PrimeraGeneracion, SegundaGeneracion),
 %		seleccionar_mejores(SegundaGeneracion, Mejor, _), 	
 %    	evaluar(Mejor, AptitudDelMejor).
-% -------------------------------------------------------------------------------------------------------------------
-% 												CONCLUSIONES
-% ------------------------------------------------------------------------------------------------------------------- 												
-% ¿Por qué conviene hacer un algoritmo genético con lógica y programación?
