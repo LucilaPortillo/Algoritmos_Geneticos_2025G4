@@ -168,7 +168,6 @@ evolucionar(PoblacionActual, NuevaPoblacion) :-
 
 
 
----
 ## Conclusion					
 Implementar un algoritmo genético con lógica y programación, como hicimos en nuestro código en Prolog, es conveniente porque su funcionamiento se basa en principios lógicos aplicados paso a paso.
 
@@ -181,3 +180,11 @@ La selección de individuos (seleccionar_mejores/3) se basa en el principio lóg
 El proceso de evolución (evolucionar/2) replica lógicamente el ciclo evolutivo, aplicando paso a paso las reglas de selección, recombinación y mutación.
 
 En conjunto, el algoritmo demuestra cómo los principios de la lógica pueden guiar de forma efectiva un proceso de optimización inspirado en la naturaleza.		
+
+-----------------------------------------------------------------------------------------------------
+				                    ACTIVIDADES
+-----------------------------------------------------------------------------------------------------												
+
+- [Actividad N°1 - CRUCIGRAMA](https://www.educaplay.com/learning-resources/24478067-crucigrama_algoritmos_geneticos_grupo_4_lyp_2025_c1.html)
+- [Actividad N°2 - FROGGY JUMP](https://es.educaplay.com/recursos-educativos/24481049-algoritmos_geneticos.html)
+
