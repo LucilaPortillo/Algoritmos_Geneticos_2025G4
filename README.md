@@ -188,6 +188,12 @@ evolucionar(PoblacionActual, NuevaPoblacion) :-
 
 
 
+
+
 -----------------------------------------------------------------------------------------------------
 				                    CONCLUSIONES
 -----------------------------------------------------------------------------------------------------												
+						    ACTIVIDADES
+
+- [Actividad N°1 - CRUCIGRAMA](https://www.educaplay.com/learning-resources/24478067-crucigrama_algoritmos_geneticos_grupo_4_lyp_2025_c1.html)
+- [Actividad N°2 - FROGGY JUMP](https://es.educaplay.com/recursos-educativos/24481049-algoritmos_geneticos.html)
