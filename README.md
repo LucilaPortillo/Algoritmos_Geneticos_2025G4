@@ -1,3 +1,17 @@
+# Lógica y Programación
+Prof. Pablo Pandolfo
+
+Primer Cuatrimestre 2025
+
+## Alumnos:
+- Aldana Gómez
+- Angel Cutri
+- Franco Trautweiler
+- Ignacio Martín Fazah
+- Lucila Portillo
+- Melanie Mai
+- Nahuel Monje
+
 # Algoritmos Genéticos (AG)
 
 Los algoritmos genéticos son una clase particular de algoritmos evolutivos (*Evolutionary Algorithms, EA*) y estos son una familia de algoritmos de optimización y búsqueda basados en la evolución biologica.
@@ -6,11 +20,8 @@ Los algoritmos genéticos funcionan iterativamente, modificanto una población d
 En cada paso, el algoritmo genético selecciona individuos de la población actual aleatoriamente y los utiliza como padres y simula la reproduccion para producir los hijos de la siguiente generación producto de la combinación y variación de sus características.  
 En vez de una sola población, puede haber dos o más poblaciones que co-evolucionan, por ejemplo **depredadores y presas**.
 
----
 
 ## Conceptos clave
-
----
 
 #### **Población**
 Un conjunto de posibles soluciones al problema. 
